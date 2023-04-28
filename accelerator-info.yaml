@@ -1,0 +1,26 @@
+id: 1386137d-35d2-4615-af27-758bf735d9df
+timestamp: 2023-04-28T08:21:54Z
+username: guest
+source: TAP-GUI
+accelerator:
+  name: java-function
+  source:
+    image: harbor-prod.mp-tanzu-demo.com/tap/tap-packages@sha256:84e456d723490dea51945f2a8a31cf6eb0df0a2c4a963bd9f3c8f94d604c543e
+fragments:
+  - name: tap-workload
+    source:
+      image: harbor-prod.mp-tanzu-demo.com/tap/tap-packages@sha256:dbf0dedb6848ad8a7704c1c19465a1ddae9039b0e63c1dd0df3e2ed9cbda6093
+  - name: build-wrapper-gradle
+    source:
+      image: harbor-prod.mp-tanzu-demo.com/tap/tap-packages@sha256:5480259d6a29a11f0cc482cd304501d74ccd89dd7207f2d639d6f0d8eedc3bf8
+  - name: build-wrapper-maven
+    source:
+      image: harbor-prod.mp-tanzu-demo.com/tap/tap-packages@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+options:
+  bsGitBranch: main
+  bsGitRepository: github.com?owner=smachida&repo=java-function
+  buildType: maven
+  includeBuildToolWrapper: true
+  includeTap: true
+  interfaceType: http
+  projectName: java-function
